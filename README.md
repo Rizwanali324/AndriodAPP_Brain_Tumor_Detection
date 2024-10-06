@@ -1,4 +1,12 @@
 # AndriodAPP_Brain_Tumor_Detection
+## UI
+
+<p align="center">
+  <img src="https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/results/GUI1.png" alt="Tumor GUI 1" width="30%" />
+  <img src="https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/results/GUI2.png" alt="Tumor GUI 2" width="30%" />
+  <img src="https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/results/GUI3.png" alt="Tumor GUI 3" width="30%" />
+</p>
+
 # Brain Tumor Detection Project
 
 This project aims to classify brain MRI images into one of the following categories:
@@ -23,13 +31,6 @@ The model is trained using a dataset of MRI images to automatically detect and c
 You can find the complete training notebook for this project here:
 [Brain Tumor Detection Training Notebook](https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/Brain_Tumor_Detection.ipynb)
 
-## UI
-
-<p align="center">
-  <img src="https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/results/GUI1.png" alt="Tumor GUI 1" width="30%" />
-  <img src="https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/results/GUI2.png" alt="Tumor GUI 2" width="30%" />
-  <img src="https://github.com/Rizwanali324/AndriodAPP_Brain_Tumor_Detection/blob/main/results/GUI3.png" alt="Tumor GUI 3" width="30%" />
-</p>
 
 ## Results
 
