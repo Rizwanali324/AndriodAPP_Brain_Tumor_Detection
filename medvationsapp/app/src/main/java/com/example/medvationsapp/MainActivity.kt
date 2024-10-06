@@ -2,13 +2,11 @@ package com.example.medvationsapp
 
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -50,10 +48,18 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
             if (result.resultCode == RESULT_OK && result.data != null) {
                 val imageUri = result.data?.data
                 try {
+                    // Reset the imageView and resView before displaying the new image
+                    imageView.setImageResource(0) // Clears previous image
+                    resView.text = ""              // Clears previous prediction result
+
                     bitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, imageUri)
                     imageView.setImageBitmap(bitmap)
+
+                    // Reset the TextView to indicate no predictions made yet
+                    resView.text = "Image selected. Click 'Predict' to detect objects."
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    resView.text = "Failed to load image."
                 }
             }
         }
@@ -93,6 +99,9 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
             style = Paint.Style.FILL
         }
 
+        // List to collect the names of detected objects
+        val detectedObjectNames = mutableListOf<String>()
+
         for (box in boundingBoxes) {
             val rectF = RectF(
                 box.x1 * bitmap.width,
@@ -104,9 +113,18 @@ class MainActivity : AppCompatActivity(), Detector.DetectorListener {
             val formattedScore = String.format("%.2f", box.cnf * 100) // Format score to 2 decimal places
             val labelText = "${box.clsName} ($formattedScore%)"
             canvas.drawText(labelText, rectF.left, rectF.top - 10, textPaint)
+
+            // Add the detected object name to the list
+            detectedObjectNames.add("${box.clsName} ($formattedScore%)")
         }
 
         imageView.setImageBitmap(canvasBitmap)
-        resView.text = "${boundingBoxes.size} objects detected."
+
+        // Update the TextView to display the detected object names
+        if (detectedObjectNames.isNotEmpty()) {
+            resView.text = "Detected: ${detectedObjectNames.joinToString(", ")}"
+        } else {
+            resView.text = "No objects detected."
+        }
     }
 }

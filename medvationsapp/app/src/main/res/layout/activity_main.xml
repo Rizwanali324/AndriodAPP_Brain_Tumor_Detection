@@ -4,43 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="0dp"
     tools:context=".MainActivity">
 
+    <!-- Title of the App with purple background -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MRI Brain Tumor Detection App"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:background="@color/purple_500"
+        android:padding="0dp" />
+
+    <!-- ImageView for displaying MRI images -->
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="500dp"
+        android:layout_below="@id/titleText"
         android:background="@color/black"
-        android:id="@+id/imageView" />
+        android:contentDescription="MRI Image Preview"
+        android:padding="0dp"/>
 
+    <!-- Buttons for selecting and predicting -->
     <LinearLayout
+        android:id="@+id/linLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/linLayout"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/imageView">
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:padding="0dp"> <!-- Set padding to 0dp -->
+
         <Button
+            android:id="@+id/selectBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select image"
-            android:layout_marginRight="10dp"
-            android:id="@+id/selectBtn"/>
+            android:text="Select Image"
+            android:layout_marginRight="16dp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/purple_500" />
+
         <Button
+            android:id="@+id/predictBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Predict"
-            android:id="@+id/predictBtn"/>
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/purple_500" />
     </LinearLayout>
 
+    <!-- TextView for displaying prediction result -->
     <TextView
+        android:id="@+id/resView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/resView"
-        android:text="prediction"
-        android:textSize="20dp"
+        android:layout_below="@+id/linLayout"
+        android:layout_marginTop="16dp"
         android:layout_marginLeft="10dp"
-        android:layout_below="@+id/linLayout"/>
-
-
-
+        android:textSize="20sp"
+        android:textColor="@color/black" />
 
 </RelativeLayout>

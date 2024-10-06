@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="yellow_50">#FFFF00</color> <!-- Define the yellow color -->
+
 </resources>
